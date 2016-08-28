@@ -6,12 +6,12 @@
   viewpointRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];
 
   function viewpointRoutes($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "views/home.html",
+        templateUrl: "/views/home.html",
         controller: "homeCtrl",
         controllerAs: "vm",
         bindToController: true
