@@ -10,17 +10,18 @@ var browserSync = require('browser-sync');
 var prefixer    = require('autoprefixer-stylus');
 
 var srcPaths = {
-  js: 'src/js/**/*.js',
-  pug: 'src/views/*.pug',
-  css: 'src/style/**/*.styl',
-  mainStyl: 'src/style/main.styl'
+  js:       'src/js/**/*.js',
+  pug:      'src/views/*.pug',
+  pugIndex: 'src/index.pug',
+  css:      'src/stylus/**/*.styl',
+  mainStyl: 'src/stylus/main.styl'
 };
 
 var buildPaths = {
   build: 'dist/',
   js:    'dist/js/',
   css:   'dist/css/',
-  pug:  'dist/views/'
+  pug:   'dist/views/'
 };
 
 gulp.task('css', function() {
@@ -48,23 +49,27 @@ gulp.task('pug', function() {
     .pipe(gulp.dest(buildPaths.pug));
 });
 
+gulp.task('pugIndex', function() {
+  gulp.src(srcPaths.pugIndex)
+    .pipe(plumber())
+    .pipe(pug())
+    .pipe(gulp.dest(buildPaths.build));
+});
+
 gulp.task('watch', function() {
-  gulp.watch(srcPaths.css, ['css']);
-  gulp.watch(srcPaths.js,  ['js']);
-  gulp.watch(srcPaths.pug, ['pug']);
+  gulp.watch(srcPaths.css,      ['css']);
+  gulp.watch(srcPaths.js,       ['js']);
+  gulp.watch(srcPaths.pug,      ['pug']);
+  gulp.watch(srcPaths.pugIndex, ['pugIndex']);
 });
 
 gulp.task('browser-sync', function() {
-  var files = [
-    buildPaths.build
-  ];
-
-  browserSync.init(files, {
+  browserSync.init(buildPaths.build, {
     port: '9000',
     server: {
       baseDir: buildPaths.build,
       routes: {
-        "/vendor": "vendor"
+        "/bower": "vendor/bower/"
       }
     },
     socket: {
@@ -74,4 +79,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'js', 'pug', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'watch', 'browser-sync']);
