@@ -1,20 +1,22 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var stylus = require('gulp-stylus');
-var fastylus = require('fa-stylus');
-var cssnano = require('gulp-cssnano');
-var koutoSwiss = require('kouto-swiss');
-var prefixer = require('autoprefixer-stylus');
+var gulp        = require('gulp');
+var fastylus    = require('fa-stylus');
+var stylus      = require('gulp-stylus');
+var uglify      = require('gulp-uglify');
+var koutoSwiss  = require('kouto-swiss');
+var plumber     = require('gulp-plumber');
+var cssnano     = require('gulp-cssnano');
 var browserSync = require('browser-sync');
-var uglify = require('gulp-uglify');
+var prefixer    = require('autoprefixer-stylus');
 
 var srcPaths = {
+  js: 'src/js/**/*.js',
   css: 'src/style/**/*.styl',
   mainStyl: 'src/style/main.styl'
 };
 
 var buildPaths = {
   build: 'dist/',
+  js: 'dist/js/',
   css: 'dist/css/'
 };
 
@@ -29,8 +31,16 @@ gulp.task('css', function() {
     .pipe(gulp.dest(buildPaths.css));
 });
 
+gulp.task('js', function() {
+  gulp.src(srcPaths.js)
+    .pipe(plumber())
+    .pipe(uglify())
+    .pipe(gulp.dest(buildPaths.js));
+});
+
 gulp.task('watch', function() {
   gulp.watch(srcPaths.css, ['css']);
+  gulp.watch(srcPaths.js,  ['js']);
 });
 
 gulp.task('browser-sync', function() {
@@ -53,4 +63,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'watch', 'browser-sync']);
