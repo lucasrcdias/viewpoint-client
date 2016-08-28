@@ -1,4 +1,5 @@
 var gulp        = require('gulp');
+var pug         = require('gulp-pug');
 var fastylus    = require('fa-stylus');
 var stylus      = require('gulp-stylus');
 var uglify      = require('gulp-uglify');
@@ -10,14 +11,16 @@ var prefixer    = require('autoprefixer-stylus');
 
 var srcPaths = {
   js: 'src/js/**/*.js',
+  pug: 'src/views/*.pug',
   css: 'src/style/**/*.styl',
   mainStyl: 'src/style/main.styl'
 };
 
 var buildPaths = {
   build: 'dist/',
-  js: 'dist/js/',
-  css: 'dist/css/'
+  js:    'dist/js/',
+  css:   'dist/css/',
+  pug:  'dist/views/'
 };
 
 gulp.task('css', function() {
@@ -38,9 +41,17 @@ gulp.task('js', function() {
     .pipe(gulp.dest(buildPaths.js));
 });
 
+gulp.task('pug', function() {
+  gulp.src(srcPaths.pug)
+    .pipe(plumber())
+    .pipe(pug())
+    .pipe(gulp.dest(buildPaths.pug));
+});
+
 gulp.task('watch', function() {
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js,  ['js']);
+  gulp.watch(srcPaths.pug, ['pug']);
 });
 
 gulp.task('browser-sync', function() {
@@ -63,4 +74,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'js', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'pug', 'watch', 'browser-sync']);
