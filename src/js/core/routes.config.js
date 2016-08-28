@@ -11,7 +11,7 @@
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "home.html",
+        templateUrl: "views/home.html",
         controller: "homeCtrl",
         controllerAs: "vm",
         bindToController: true
