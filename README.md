@@ -1,5 +1,7 @@
 # viewpoint-client
 
+## Seguir o [Styleguide AngularJS](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+
 ## Comandos para rodar o projeto
 
 ### Instalar o nodejs
