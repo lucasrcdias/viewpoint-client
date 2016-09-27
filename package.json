@@ -12,16 +12,17 @@
   },
   "homepage": "https://github.com/lucasrcdias/viewpoint-client#readme",
   "devDependencies": {
-    "autoprefixer-stylus": "^0.9.2",
     "browser-sync": "^2.13.0",
     "cssnano": "^3.7.1",
-    "fa-stylus": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-pug": "^3.0.4",
     "gulp-cssnano": "^2.1.2",
     "gulp-plumber": "^1.1.0",
-    "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^1.5.4",
-    "kouto-swiss": "^0.12.0"
+    "gulp-sass": "^2.3.2",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-watch": "^4.3.9",
+    "gulp-concat": "^2.6.0",
+    "gulp-angular-filesort": "^1.1.1"
   }
 }
