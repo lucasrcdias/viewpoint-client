@@ -6,21 +6,27 @@ var concat          = require("gulp-concat");
 var uglify          = require('gulp-uglify');
 var plumber         = require('gulp-plumber');
 var cssnano         = require('gulp-cssnano');
+var bowerFiles      = require("main-bower-files");
 var browserSync     = require('browser-sync');
 var autoprefixer    = require("gulp-autoprefixer");
 var angularFileSort = require("gulp-angular-filesort");
 
 var srcPaths = {
-  js:       'src/js/**/*.js',
-  pug:      'src/views/*.pug',
-  pugIndex: 'src/index.pug',
-  css:      'src/style/**/*.sass',
-  mainSass: 'src/style/viewpoint.sass'
+  'js':       'src/js/**/*.js',
+  'pug':      'src/views/*.pug',
+  'pugIndex': 'src/index.pug',
+  'css':      'src/style/**/*.sass',
+  'mainSass': 'src/style/viewpoint.sass'
 };
 
+var vendorPaths = {
+  'css': 'vendor/bower/**/*.css',
+  'js': 'vendor/bower/**/*.js'
+}
+
 var buildPaths = {
-  build: 'dist/',
-  pug:   'dist/views/'
+  'build': 'dist/',
+  'pug':   'dist/views/'
 };
 
 var autoprefixerOptions = {
@@ -47,12 +53,28 @@ gulp.task('css', function() {
     .pipe(gulp.dest(buildPaths.build));
 });
 
+gulp.task('vendorCss', function() {
+  gulp.src(bowerFiles("**/*.css"))
+    .pipe(plumber())
+    .pipe(concat("viewpoint-vendor.css"))
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(cssnano())
+    .pipe(gulp.dest(buildPaths.build));
+});
+
 gulp.task("js", function () {
   gulp.src(srcPaths.js)
     .pipe(plumber())
     .pipe(angularFileSort())
     .pipe(concat("viewpoint.min.js"))
     .pipe(uglify())
+    .pipe(gulp.dest(buildPaths.build));
+});
+
+gulp.task("vendorJs", function () {
+  gulp.src(bowerFiles("**/*.js"))
+    .pipe(plumber())
+    .pipe(concat("viewpoint-vendor.min.js"))
     .pipe(gulp.dest(buildPaths.build));
 });
 
@@ -86,6 +108,14 @@ gulp.task('watch', function() {
   watch(srcPaths.pugIndex, function () {
     gulp.start("pugIndex");
   });
+
+  watch(vendorPaths.css, function () {
+    gulp.start("vendorCss");
+  });
+
+  watch(vendorPaths.js, function () {
+    gulp.start("vendorJs");
+  });
 });
 
 gulp.task('browser-sync', function() {
@@ -104,4 +134,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'vendorCss', 'vendorJs', 'watch', 'browser-sync']);
