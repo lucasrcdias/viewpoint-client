@@ -1,14 +1,15 @@
 doctype html
 html(lang="pt-br" ng-app="viewpoint")
   head
-    title= Viewpoint
+    title Viewpoint
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" type="text/css" href="css/main.css")
+    link(rel="stylesheet" type="text/css" href="viewpoint.css")
 
   body
     div(ui-view="")
+
     //- Dependencies
     script(src="bower/angular/angular.min.js")
     script(src="bower/angular-aria/angular-aria.min.js")

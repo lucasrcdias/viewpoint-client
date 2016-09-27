@@ -15,13 +15,11 @@ var srcPaths = {
   pug:      'src/views/*.pug',
   pugIndex: 'src/index.pug',
   css:      'src/style/**/*.sass',
-  mainSass: 'src/style/main.sass'
+  mainSass: 'src/style/viewpoint.sass'
 };
 
 var buildPaths = {
   build: 'dist/',
-  js:    'dist/js/',
-  css:   'dist/css/',
   pug:   'dist/views/'
 };
 
@@ -46,7 +44,7 @@ gulp.task('css', function() {
     .pipe(sass())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(cssnano())
-    .pipe(gulp.dest(buildPaths.css));
+    .pipe(gulp.dest(buildPaths.build));
 });
 
 gulp.task("js", function () {
