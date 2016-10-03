@@ -1,0 +1,19 @@
+{
+  "name": "viewpoint-client",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-touch": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-ui-router": "^0.2.18",
+    "ng-lodash": "^0.5.0",
+    "angular-environment": "^1.0.4",
+    "angular-messages": "^1.5.8",
+    "font-awesome": "^4.6.3"
+  },
+  "resolutions": {
+    "angular": "^1.5.8"
+  }
+}
