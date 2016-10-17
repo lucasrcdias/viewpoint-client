@@ -1,1 +1,41 @@
-h1 Signup
+.page__wrapper
+  h1.page__title Viewpoint
+
+  .page__divisor
+    span.page__divisor-icon &#9679
+
+  p.page__description Utilize o espaço abaixo para criar sua conta
+
+  .page__form
+    form.ztt-card(name="vm.signupForm", ng-submit="vm.signupFormSubmit", ng-autodisable="")
+      .ztt-card__content
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="name") Informe seu nome
+            input.ztt-form-group__input#name(ng-model="vm.user.name", ng-required="true", type="text", ztt-input="")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="email") Qual e-mail você mais usa?
+            input.ztt-form-group__input#email(ng-model="vm.user.email", ng-required="true", type="text", ztt-input="")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="password") Escolha uma senha para acessar o viewpoint
+            input.ztt-form-group__input#password(ng-model="vm.user.password", ng-required="true", type="text", ztt-input="")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="password_confirmation") Agora só falta confirmar sua senha
+            input.ztt-form-group__input#password_confirmation(ng-model="vm.user.password_confirmation", ng-required="true", type="text", ztt-input="")
+
+      .ztt-card__footer.ztt-card__footer--center
+        button.btn.btn--primary.btn--block(type="submit") Criar conta
+
+  .page__links
+    a.page__link(ng-href="signin")
+      | Já possui uma conta?
+      strong.page__link__highlight Acesse
+    a.page__link(ng-href="passwordRecover")
+      | Esqueceu sua senha? 
+      strong.page__link__highlight Vamos recuperá-la
