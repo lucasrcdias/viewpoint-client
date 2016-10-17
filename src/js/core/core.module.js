@@ -6,6 +6,8 @@
     'ngAria',
     'environment',
     'ngLodash',
-    'ui.router'
+    'ngAutodisable',
+    'ui.router',
+    'zttDesignLite'
   ]);
 })();
