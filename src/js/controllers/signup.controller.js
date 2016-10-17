@@ -5,7 +5,7 @@
 
   signupCtrl.$inject = ["userService"];
 
-  function signupCtrl() {
+  function signupCtrl(userService) {
     var vm = this;
 
     vm.signupFormSubmit = signupFormSubmit;

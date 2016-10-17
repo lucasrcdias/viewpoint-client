@@ -22,6 +22,13 @@
         controller: "signupCtrl",
         controllerAs: "vm",
         bindToController: true
+      })
+      .state("passwordRecovery", {
+        url: "/recuperar-senha",
+        templateUrl: "/views/password-recovery.html",
+        controller: "passwordRecoveryCtrl",
+        controllerAs: "vm",
+        bindToController: true
       });
   };
 })();
