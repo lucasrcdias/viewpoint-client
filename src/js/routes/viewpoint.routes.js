@@ -22,6 +22,13 @@
         controller: "signupCtrl",
         controllerAs: "vm",
         bindToController: true
+      })
+      .state("passwordUpdate", {
+        url: "/alterar-senha",
+        templateUrl: "/views/password-update.html",
+        controller: "passwordUpdateCtrl",
+        controllerAs: "vm",
+        bindToController: true
       });
   };
 })();
