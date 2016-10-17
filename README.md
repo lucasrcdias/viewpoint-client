@@ -2,6 +2,8 @@
 
 ## Seguir o [Styleguide AngularJS](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
 
+## Seguir o padrão de [nomenclatura do BEM](http://getbem.com/naming/)
+
 ## Comandos para rodar o projeto
 
 ### Instalar o nodejs
