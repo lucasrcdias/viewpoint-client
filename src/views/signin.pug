@@ -1,0 +1,31 @@
+.page__wrapper
+  h1.page__title Viewpoint
+
+  .page__divisor
+    span.page__divisor-icon &#9679
+
+  p.page__description Acesse sua conta
+
+  .page__form
+    form.ztt-card(name="vm.signupForm", ng-submit="vm.signupFormSubmit", ng-autodisable="")
+      .ztt-card__content
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="email") Digite seu e-mail
+            input.ztt-form-group__input#email(ng-model="vm.user.email", ng-required="true", type="text", ztt-input="")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="password") Digite sua senha
+            input.ztt-form-group__input#password(ng-model="vm.user.password", ng-required="true", type="text", ztt-input="")
+
+      .ztt-card__footer.ztt-card__footer--center
+        button.btn.btn--primary.btn--block(type="submit") Entrar
+
+  .page__links
+    a.page__link(ui-sref="signup")
+      | Ainda não possui uma conta?
+      strong.page__link__highlight Crie sua conta
+    a.page__link(ui-sref="passwordRecover")
+      | Esqueceu sua senha?
+      strong.page__link__highlight Vamos recuperá-la
