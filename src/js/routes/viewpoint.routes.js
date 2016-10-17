@@ -22,6 +22,13 @@
         controller: "signupCtrl",
         controllerAs: "vm",
         bindToController: true
+      })
+      .state("signin", {
+        url: "/entrar",
+        templateUrl: "/views/signin.html",
+        controller: "signinCtrl",
+        controllerAs: "vm",
+        bindToController: true
       });
   };
 })();
