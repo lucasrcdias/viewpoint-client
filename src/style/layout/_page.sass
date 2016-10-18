@@ -14,6 +14,20 @@
   text-transform: uppercase
   font-family: "Roboto Slab", serif
 
+.page__title__link
+  color: $primary-text-color
+  text-decoration: none
+
+  &:visited
+    color: $primary-text-color
+
+    &:hover
+      color: darken($primary-text-color, 10%)
+
+  &:hover,
+  &:active
+    color: darken($primary-text-color, 10%)
+
 .page__divisor
   max-width: 320px
   margin: 30px auto
