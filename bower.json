@@ -13,7 +13,8 @@
     "angular-messages": "^1.5.8",
     "ztt-design-lite": "zigotto/ztt-design-lite#^0.0.11",
     "angular-autodisable": "^0.2.2",
-    "normalize-css": "^5.0.0"
+    "normalize-css": "^5.0.0",
+    "font-awesome": "^4.6.3"
   },
   "resolutions": {
     "angular": "^1.5.8"
