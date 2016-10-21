@@ -3,6 +3,7 @@
     'viewpoint.core',
     'viewpoint.directives',
     'viewpoint.controllers',
-    'viewpoint.services'
+    'viewpoint.services',
+    'viewpoint.routes'
   ]);
 })();
