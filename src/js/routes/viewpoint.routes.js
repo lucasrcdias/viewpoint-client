@@ -1,4 +1,4 @@
-(function() {
+(function () {
   angular
     .module('viewpoint.routes')
     .config(viewpointRoutes);
@@ -41,6 +41,13 @@
         url: "/alterar-senha",
         templateUrl: "/views/password-update.html",
         controller: "passwordUpdateCtrl",
+        controllerAs: "vm",
+        bindToController: true
+      })
+      .state("dashboard", {
+        url: "/dashboard",
+        templateUrl: "/views/dashboard.html",
+        controller: "dashboardCtrl",
         controllerAs: "vm",
         bindToController: true
       });
