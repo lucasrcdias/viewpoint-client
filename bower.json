@@ -11,11 +11,12 @@
     "ng-lodash": "^0.5.0",
     "angular-environment": "^1.0.4",
     "angular-messages": "^1.5.8",
-    "ztt-design-lite": "zigotto/ztt-design-lite#^0.0.11",
+    "ztt-design-lite": "zigotto/ztt-design-lite#^0.0.13",
     "angular-autodisable": "^0.2.2",
     "normalize-css": "^5.0.0",
     "font-awesome": "^4.6.3",
-    "clipboard": "^1.5.13"
+    "clipboard": "^1.5.13",
+    "angucomplete-alt": "^2.5.0"
   },
   "resolutions": {
     "angular": "^1.5.8"
