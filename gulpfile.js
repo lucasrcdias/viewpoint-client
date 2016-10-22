@@ -3,6 +3,7 @@ var pug             = require('gulp-pug');
 var sass            = require("gulp-sass");
 var watch           = require("gulp-watch");
 var concat          = require("gulp-concat");
+var filter          = require("gulp-filter");
 var uglify          = require('gulp-uglify');
 var plumber         = require('gulp-plumber');
 var cssnano         = require('gulp-cssnano');
@@ -26,7 +27,8 @@ var vendorPaths = {
 
 var buildPaths = {
   'build': 'dist/',
-  'pug':   'dist/views/'
+  'pug':   'dist/views/',
+  'fonts': 'dist/fonts/'
 };
 
 var autoprefixerOptions = {
@@ -54,7 +56,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('vendorCss', function() {
-  gulp.src(bowerFiles("**/*.css"))
+  gulp.src(bowerFiles("**/*.css", {
+    "overrides": {
+      "font-awesome": {
+        "main": [
+          "./css/font-awesome.min.css"
+        ]
+      }
+    }
+  }))
     .pipe(plumber())
     .pipe(concat("viewpoint-vendor.css"))
     .pipe(autoprefixer(autoprefixerOptions))
@@ -76,6 +86,30 @@ gulp.task("vendorJs", function () {
     .pipe(plumber())
     .pipe(concat("viewpoint-vendor.min.js"))
     .pipe(gulp.dest(buildPaths.build));
+});
+
+gulp.task("vendorFonts", function() {
+  var fonts = bowerFiles({
+    "overrides": {
+      "font-awesome": {
+        "main": [
+          "./fonts/fontawesome-webfont.eot",
+          "./fonts/fontawesome-webfont.svg",
+          "./fonts/fontawesome-webfont.ttf",
+          "./fonts/fontawesome-webfont.woff",
+          "./fonts/fontawesome-webfont.woff2",
+          "./fonts/FontAwesome.otf"
+        ]
+      }
+    }
+  });
+
+  var filterFonts = filter(["**/*.eot", "**/*.svg", "**/*.ttf", "**/*.woff", "**/*.woff2", "**/*.otf"]);
+
+  gulp.src(fonts)
+    .pipe(plumber())
+    .pipe(filterFonts)
+    .pipe(gulp.dest(buildPaths.fonts));
 });
 
 gulp.task('pug', function() {
@@ -134,4 +168,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'vendorCss', 'vendorJs', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'vendorCss', 'vendorJs', 'vendorFonts', 'watch', 'browser-sync']);
