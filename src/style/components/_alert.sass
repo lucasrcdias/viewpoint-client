@@ -1,0 +1,48 @@
+.alert
+  opacity: 0
+  left: 50%
+  padding: 10px
+  position: absolute
+  visibility: hidden
+  pointer-events: none
+  will-change: opacity
+  transform: translateX(-50%)
+  transition: .2s opacity ease
+  border-radius: $border-radius
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .5)
+  box-sizing: border-box
+  display: flex
+  align-items: center
+
+  @media screen and (max-width: $mobile-max)
+    bottom: 10px
+    width: calc(100% - 20px)
+
+  @media screen and (min-width: $tablet-min)
+    top: 60px
+
+.alert--visible
+  opacity: 1
+  pointer-events: all
+  visibility: visible
+
+.alert--success
+  color: #fff
+  background: $primary-success-color
+  border: 1px solid $secondary-success-color
+
+.alert__message
+  margin: 0
+  font-weight: 300
+  font-size: 0.875rem
+
+.alert__close
+  flex: 0 0 30px
+  height: 30px
+  line-height: 28px
+  border: 0
+  margin-left: 10px
+  background: transparent
+
+.alert__close__icon
+  color: #fff
