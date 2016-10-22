@@ -14,7 +14,7 @@ var angularFileSort = require("gulp-angular-filesort");
 
 var srcPaths = {
   'js':       'src/js/**/*.js',
-  'pug':      'src/views/*.pug',
+  'pug':      'src/views/**/*.pug',
   'pugIndex': 'src/index.pug',
   'css':      'src/style/**/*.sass',
   'mainSass': 'src/style/viewpoint.sass'
@@ -77,7 +77,6 @@ gulp.task("js", function () {
     .pipe(plumber())
     .pipe(angularFileSort())
     .pipe(concat("viewpoint.min.js"))
-    .pipe(uglify())
     .pipe(gulp.dest(buildPaths.build));
 });
 
