@@ -1,4 +1,26 @@
 extends layouts/dashboard.pug
 
 block content
-  h1 Dashboard
+  h2.dashboard__title Dashboard
+
+  .dashboard__wrapper
+    aside.dashboard__aside(role="filter")
+      .ztt-card.dashboard__card
+        .ztt-card__header
+          .ztt-card__header-content
+            h3.ztt-card__title Filtros
+
+        .ztt-card__content
+          .ztt-form-group
+            .ztt-form-group__wrapper
+              label.ztt-form-group__label.ztt-form-group__label--floating(for="group") Selecione um grupo
+              input.ztt-form-group__input#group(type="text", ztt-input="", ng-model="vm.group")
+
+        .ztt-card__footer
+          button.btn.btn--primary.btn--block(type="submit") Filtrar
+
+    main.dashboard__main(role="main-content")
+      .ztt-card.dashboard__card
+        .ztt-card__header
+          .ztt-card__header-content
+            h3.ztt-card__title Relatório
