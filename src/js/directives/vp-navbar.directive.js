@@ -28,7 +28,7 @@
       var apiClipboard = new Clipboard(".js-api-key-btn");
 
       apiClipboard.on('success', function(event) {
-        alertService.success("Chave copiada, basta copiá-la para o local desejado!");
+        alertService.success("Chave copiada, basta colar no local desejado!");
       });
 
       window       .addEventListener("resize", windowResized);
