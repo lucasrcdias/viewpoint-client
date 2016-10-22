@@ -1,0 +1,25 @@
+nav.nav(role="nav", vp-navbar="")
+  .container.container--nav.js-container
+    .nav__logo
+      a.nav__logo__link(ui-sref="dashboard")
+        h1.nav__logo__text Viewpoint
+
+    .nav__api.js-api-wrapper
+      strong.nav__api__label Chave da API
+
+      input.nav__api__input#api-key(type="text", readonly="true", value="ABCDEF123456")
+      button.nav__api__btn.js-api-key-btn(type="button", data-clipboard-target="#api-key") Copiar
+
+    .nav__menu.js-menu
+      button.nav__menu__toggle.js-submenu-toggle(type="button")
+        i.fa.fa-bars.nav__menu__icon.js-toggle-icon
+
+      .nav__menu__submenu.js-submenu
+        a.nav__menu__submenu__item(ui-sref="passwordUpdate") Alterar senha
+        a.nav__menu__submenu__item(ui-sref="signout") Sair
+
+    .nav__mobile.js-mobile-menu
+
+.dashboard
+  .container
+    block content
