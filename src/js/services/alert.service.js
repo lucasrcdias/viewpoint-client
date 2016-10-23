@@ -32,7 +32,7 @@
         "type": type
       };
 
-      $rootScope.$emit("displayAlert", alert);
+      $rootScope.$emit("alert:display", alert);
     };
   };
 })();
