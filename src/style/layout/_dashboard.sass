@@ -4,6 +4,10 @@
   padding-bottom: 30px
   background: $third-gray
 
+  @media screen and (max-width: $laptop-max)
+    padding-left: 10px
+    padding-right: 10px
+
 .container
   max-width: 1200px
   margin-left: auto
@@ -27,6 +31,7 @@
     display: block
     margin-top: 10px
     will-change: box-shadow
+    border-radius: $border-radius
     transition: .2s box-shadow ease
     background: linear-gradient(left, #1565c0, #1a5aa3, #0277bd, #0288d1, #00bcd4, #26c6da, #80deea)
 
@@ -40,12 +45,22 @@
 .dashboard__main
   padding-left: 15px
   padding-right: 15px
+  flex-grow: 0
+  flex-shrink: 0
+
+  @media screen and (max-width: $mobile-max)
+    flex-basis: 100%
 
 .dashboard__aside
-  flex: 0 0 30%
+  @media screen and (max-width: $mobile-max)
+    margin-bottom: 30px
+
+  @media screen and (min-width: $tablet-min)
+    flex-basis: 30%
 
 .dashboard__main
-  flex: 0 0 70%
+  @media screen and (min-width: $tablet-min)
+    flex-basis: 70%
 
 .dashboard__card
   height: 100%
