@@ -49,7 +49,12 @@
         templateUrl: "/views/dashboard.html",
         controller: "dashboardCtrl",
         controllerAs: "vm",
-        bindToController: true
+        bindToController: true,
+        resolve: {
+          groups: function(groupsService) {
+            return groupsService.getGroups();
+          }
+        }
       });
   };
 })();
