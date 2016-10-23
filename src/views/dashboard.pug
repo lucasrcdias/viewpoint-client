@@ -14,7 +14,7 @@ block content
           .ztt-form-group
             .ztt-form-group__wrapper
               label.ztt-form-group__label.ztt-form-group__label--floating(for="group_value") Selecione um grupo
-              angucomplete-alt(id="group", input-class="ztt-form-group__input", template-url="/views/directives/angucomplete.html", text-no-results="Nenhum resultado encontrado", match-class="highlight", title-field="name", search-fields="name", local-data="vm.groups", local-search="vm.groupSearch", selected-object="vm.group", auto-match="true", minlength="1")
+              angucomplete-alt(id="group", input-class="ztt-form-group__input", template-url="/views/directives/angucomplete.html", text-searching="Procurando...", text-no-results="Nenhum resultado encontrado", match-class="highlight", title-field="name", search-fields="name", local-data="vm.groups", local-search="vm.groupSearch", selected-object="vm.group", auto-match="true", minlength="1")
 
         .ztt-card__footer
           button.btn.btn--primary.btn--block(type="button") Filtrar
