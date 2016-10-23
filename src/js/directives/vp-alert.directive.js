@@ -5,7 +5,8 @@
 
   function vpAlert() {
     var directive = {
-      restrict: "EA",
+      restrict: "E",
+      scope: {},
       templateUrl: "views/directives/vp-alert.html",
       controller: vpAlertCtrl,
       controllerAs: "vm",
@@ -14,10 +15,12 @@
 
     vpAlertCtrl.$inject = ["$rootScope", "$timeout"];
 
+    return directive;
+
     function vpAlertCtrl($rootScope, $timeout) {
       var vm = this;
 
-      $rootScope.$on("displayAlert", alertDisplayHandler);
+      $rootScope.$on("alert:display", alertDisplayHandler);
 
       function alertDisplayHandler(event, alert) {
         if (alert) {
@@ -36,7 +39,5 @@
         vm.type    = undefined;
       };
     };
-
-    return directive;
   };
 })();
