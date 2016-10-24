@@ -9,19 +9,12 @@
     var apiUrl  = envService.read("apiURL");
     var service = {
       get: get,
-      create: create,
       update: update,
       remove: remove,
       recoverPassword: recoverPassword
     };
 
     return service;
-
-    function create (user) {
-      return $http.post(apiUrl + "/user/create", user)
-        .then(onSuccess)
-        .catch(onFailure);
-    }
 
     function update (user) {
       return $http.put(apiUrl + "/user/update", user)
