@@ -36,11 +36,16 @@
     }
 
     function recoverPassword(user) {
-      console.log(user);
+      // TODO: Atualizar quando for implementada a API para recuperação de senha
+      return $http.post(apiUrl + "/user/password-recovery")
+        .then(onSuccess)
+        .catch(onFailure);
     }
 
     function get(id) {
-      console.log(user);
+      return $http.get(apiUrl + "/user/show")
+        .then(onSuccess)
+        .catch(onFailure);
     }
 
     function onSuccess(response) {
