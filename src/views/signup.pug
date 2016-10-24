@@ -23,6 +23,7 @@ block form
           .ztt-form-group__wrapper
             label.ztt-form-group__label.ztt-form-group__label--floating(for="password") Escolha uma senha
             input.ztt-form-group__input#password(name="password", ng-model="vm.user.password", ng-required="true", ng-minlength="6", type="password", ztt-input="")
+          span.ztt-form-group__hint Mínimo 6 caracteres
           vp-error-messages(errors="vm.signupForm.password.$error", is-dirty="vm.signupForm.password.$dirty")
 
         .ztt-form-group
