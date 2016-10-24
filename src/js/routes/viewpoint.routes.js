@@ -1,4 +1,4 @@
-(function() {
+(function () {
   angular
     .module('viewpoint.routes')
     .config(viewpointRoutes);
@@ -43,6 +43,18 @@
         controller: "passwordUpdateCtrl",
         controllerAs: "vm",
         bindToController: true
+      })
+      .state("dashboard", {
+        url: "/dashboard",
+        templateUrl: "/views/dashboard.html",
+        controller: "dashboardCtrl",
+        controllerAs: "vm",
+        bindToController: true,
+        resolve: {
+          groups: function(groupsService) {
+            return groupsService.getGroups();
+          }
+        }
       });
   };
 })();

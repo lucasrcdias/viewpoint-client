@@ -1,0 +1,4 @@
+.alert(ng-class="[vm.type, { 'alert--visible': vm.display }]")
+  p.alert__message {{ vm.message }}
+  button.alert__close(type="button", ng-click="vm.display = false")
+    i.fa.fa-times.alert__close__icon

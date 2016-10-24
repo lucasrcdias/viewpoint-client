@@ -1,0 +1,31 @@
+.autocomplete__wrapper
+  position: relative
+
+.autocomplete__dropdown
+  z-index: 1
+  width: 100%
+  max-height: 300px
+  position: absolute
+  overflow-x: scroll
+  background: $third-gray
+  border: 1px solid $secondary-gray
+  border-bottom-left-radius: $border-radius
+  border-bottom-right-radius: $border-radius
+
+.autocomplete__item
+  cursor: pointer
+  padding: 10px 15px
+  will-change: background
+  transition: .1s background ease-in
+
+  &:not(:last-child)
+    border-bottom: 1px solid $secondary-gray
+
+  &:hover
+    background: darken($third-gray, 5%)
+
+.autocomplete-selected-row
+  background: darken($third-gray, 5%)
+
+.autocomplete__item--empty
+  color: $primary-error-color

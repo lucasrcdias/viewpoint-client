@@ -1,0 +1,149 @@
+.nav
+  background: #fff
+  padding: 10px 10px 0 10px
+
+  &::after
+    content: ""
+    height: 3px
+    display: block
+    margin: 10px -10px 0 -10px
+    will-change: box-shadow
+    transition: .2s box-shadow ease
+    background: linear-gradient(left, #1565c0, #1a5aa3, #0277bd, #0288d1, #00bcd4, #26c6da, #80deea)
+
+  &:hover:after
+    box-shadow: 0 1px 10px rgba(0,0,0,.1)
+
+.nav__logo
+  flex: 0 0 150px
+  order: 1
+
+.nav__logo__link
+  text-decoration: none
+
+.nav__logo__text
+  margin: 0
+  font-size: 1.375rem
+  text-transform: uppercase
+  font-family: 'Roboto Slab', serif
+
+.nav__api
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+
+  @media screen and (max-width: $mobile-max)
+    margin-top: 30px
+
+  @media screen and (min-width: $tablet-min)
+    order: 2
+
+.nav__api__label
+  font-weight: 300
+  color: $primary-gray
+  margin-right: 10px
+
+  @media screen and (max-width: $mobile-max)
+    margin-bottom: 10px
+    flex: 0 0 100%
+
+.nav__api__input,
+.nav__api__btn
+  height: 30px
+
+.nav__api__input
+  border: 0
+  border-top-left-radius: $border-radius
+  border-bottom-left-radius: $border-radius
+  background: $third-gray
+  text-align: center
+
+.nav__api__btn
+  color: #fff
+  font-weight: 500
+  font-size: 0.875rem
+  min-width: 70px
+  cursor: pointer
+  will-change: background
+  background: $primary-gray
+  border: 0
+  border-top-right-radius: $border-radius
+  border-bottom-right-radius: $border-radius
+  transition: .2s background ease
+
+  &:hover
+    background: $primary-color
+
+  &:active
+    background: $secondary-color
+
+.nav__menu
+  position: relative
+
+  @media screen and (max-width: $mobile-max)
+    order: 2
+
+  @media screen and (min-width: $tablet-min)
+    order: 3
+
+.nav__menu__toggle
+  width: 30px
+  height: 30px
+  line-height: 1.75rem
+  text-align: center
+  border-radius: 50%
+  border: 0
+  background: 0
+  color: $primary-color
+  cursor: pointer
+  will-change: color, background
+  transition: .2s color ease
+
+  &:hover,
+  &:active
+    background: $third-gray
+    color: #000
+
+.nav__menu__submenu
+  @media screen and (min-width: $tablet-min)
+    right: 0
+    opacity: 0
+    background: #fff
+    visibility: hidden
+    position: absolute
+    pointer-events: none
+    will-change: opacity
+    transition: .2s opacity ease
+    border-radius: $border-radius
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2)
+
+.nav__menu__submenu--opened
+  opacity: 1
+  pointer-events: all
+  visibility: visible
+
+.nav__menu__submenu__item
+  display: block
+  padding-top: 10px
+  padding-bottom: 10px
+  font-size: 0.875rem
+  text-decoration: none
+  white-space: nowrap
+
+  @media screen and (min-width: $tablet-min)
+    padding-left: 15px
+    padding-right: 15px
+
+.nav__mobile
+  @media screen and (max-width: $mobile-max)
+    order: 3
+    flex: 0 0 100%
+    max-height: 0
+    overflow: hidden
+    transition: .2s max-height ease-in
+
+  @media screen and (min-width: $tablet-min)
+    display: none
+
+.nav__mobile--visible
+  max-height: 300px

@@ -1,0 +1,8 @@
+.autocomplete__wrapper
+  input(id="{{id}}_value", name="{{inputName}}", tabindex="{{fieldTabindex}}", ng-model="searchStr", ng-disabled="disableInput", type="{{inputType}}", placeholder="{{placeholder}}", maxlength="{{maxlength}}", ng-focus="onFocusHandler()", class="{{inputClass}}", ng-blur="hideResults($event)", autocapitalize="off", autocorrect="off", autocomplete="off", ng-change="inputChangeHandler(searchStr)", ztt-input="")
+  .autocomplete__dropdown(id="{{id}}_dropdown", ng-show="showDropdown")
+    .autocomplete__item.autocomplete__item--searching(ng-show="searching", ng-bind="textSearching")
+    .autocomplete__item.autocomplete__item--empty(ng-show="!searching && (!results || results.length == 0)", ng-bind="textNoResults")
+    .autocomplete__item(ng-repeat="result in results", ng-click="selectResult(result)", ng-mouseenter="hoverRow($index)", ng-class="{'autocomplete-selected-row': $index == currentIndex}")
+      .autocomplete__item__title(ng-if="matchClass", ng-bind-html="result.title")
+      .autocomplete__item__title(ng-if="!matchClass") {{ result.title }}

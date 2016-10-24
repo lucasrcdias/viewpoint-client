@@ -4,6 +4,7 @@
     'ngSanitize',
     'ngMessages',
     'ngAria',
+    'angucomplete-alt',
     'environment',
     'ngLodash',
     'ngAutodisable',
