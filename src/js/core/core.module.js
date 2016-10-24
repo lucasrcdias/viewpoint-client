@@ -8,6 +8,7 @@
     'environment',
     'ngLodash',
     'ngAutodisable',
+    'satellizer',
     'ui.router',
     'zttDesignLite'
   ]);
