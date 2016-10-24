@@ -1,11 +1,11 @@
-(function() {
+(function () {
   angular
     .module('viewpoint.core')
     .config(environmentProvider);
 
     environmentProvider.$inject = ['envServiceProvider'];
 
-    function environmentProvider(envServiceProvider) {
+    function environmentProvider (envServiceProvider) {
       envServiceProvider.config({
         domains: {
           development: ['localhost'],

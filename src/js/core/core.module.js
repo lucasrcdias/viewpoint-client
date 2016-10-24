@@ -1,4 +1,4 @@
-(function() {
+(function () {
   angular.module("viewpoint.core", [
     'ngTouch',
     'ngSanitize',

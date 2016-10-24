@@ -16,10 +16,10 @@
       return vm.groups.filter(function(group) {
         return normalizedName(group.name).search(query) !== -1;
       });
-    };
+    }
 
-    function normalizedName(name) {
+    function normalizedName (name) {
       return name.removeDiacritics().toLowerCase();
-    };
-  };
+    }
+  }
 })();

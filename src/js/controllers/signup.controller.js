@@ -5,31 +5,31 @@
 
   signupCtrl.$inject = ["userService"];
 
-  function signupCtrl(userService) {
+  function signupCtrl (userService) {
     var vm = this;
 
     vm.signupFormSubmit = signupFormSubmit;
 
-    function signupFormSubmit(user) {
+    function signupFormSubmit (user) {
       return userService.create(user)
         .then(userCreated)
         .catch(userCreationFail)
         .finally(signupFormReset);
     }
 
-    function userCreated(response) {
+    function userCreated (response) {
       console.log(response);
-    };
+    }
 
-    function userCreationFail(error) {
+    function userCreationFail (error) {
       console.log(error);
-    };
+    }
 
-    function signupFormReset() {
+    function signupFormReset () {
       vm.user.password = "";
       vm.user.passwordConfirmation = "";
 
       vm.signupForm.$setPristine();
     }
-  };
+  }
 })();

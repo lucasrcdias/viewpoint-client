@@ -5,7 +5,7 @@
 
   viewpointRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];
 
-  function viewpointRoutes($stateProvider, $urlRouterProvider) {
+  function viewpointRoutes ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
 
     $stateProvider
@@ -51,7 +51,7 @@
         controllerAs: "vm",
         bindToController: true,
         resolve: {
-          groups: function(groupsService) {
+          groups: function (groupsService) {
             return groupsService.getGroups();
           }
         }

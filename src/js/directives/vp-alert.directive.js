@@ -3,7 +3,7 @@
     .module("viewpoint.directives")
     .directive("vpAlert", vpAlert);
 
-  function vpAlert() {
+  function vpAlert () {
     var directive = {
       restrict: "E",
       scope: {},
@@ -17,12 +17,12 @@
 
     return directive;
 
-    function vpAlertCtrl($rootScope, $timeout) {
+    function vpAlertCtrl ($rootScope, $timeout) {
       var vm = this;
 
       $rootScope.$on("alert:display", alertDisplayHandler);
 
-      function alertDisplayHandler(event, alert) {
+      function alertDisplayHandler (event, alert) {
         if (alert) {
           vm.message = alert.message;
           vm.type    = "alert--" + alert.type;
@@ -31,13 +31,13 @@
           $timeout(hideAlert, 5000);
           $rootScope.$apply();
         }
-      };
+      }
 
-      function hideAlert() {
+      function hideAlert () {
         vm.display = false;
         vm.message = undefined;
         vm.type    = undefined;
-      };
-    };
-  };
+      }
+    }
+  }
 })();
