@@ -3,9 +3,10 @@
     .module("viewpoint.services")
     .factory("userService", userService);
 
-  userService.$inject = ["$http", "$q"];
+  userService.$inject = ["$http", "$q", "envService"];
 
-  function userService($http, $q) {
+  function userService($http, $q, envService) {
+    var apiUrl  = envService.read("apiURL");
     var service = {
       create: create,
       update: update,
@@ -17,15 +18,21 @@
     return service;
 
     function create(user) {
-      console.log(user);
+      return $http.post(apiUrl + "/user/create", { "user": user })
+        .then(onSuccess)
+        .catch(onFailure);
     }
 
     function update(user) {
-      console.log(user);
+      return $http.put(apiUrl + "/user/update", { "user": user })
+        .then(onSuccess)
+        .catch(onFailure);
     }
 
     function remove(user) {
-      console.log(user);
+      return $http.delete(apiUrl + "/user/delete")
+        .then(onSuccess)
+        .catch(onFailure);
     }
 
     function recoverPassword(user) {
