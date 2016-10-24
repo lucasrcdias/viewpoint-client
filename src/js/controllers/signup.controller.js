@@ -3,15 +3,15 @@
     .module("viewpoint.controllers")
     .controller("signupCtrl", signupCtrl);
 
-  signupCtrl.$inject = ["userService"];
+  signupCtrl.$inject = ["$auth"];
 
-  function signupCtrl (userService) {
+  function signupCtrl ($auth) {
     var vm = this;
 
     vm.signupFormSubmit = signupFormSubmit;
 
     function signupFormSubmit (user) {
-      return userService.create(user)
+      return $auth.signup(user)
         .then(userCreated)
         .catch(userCreationFail)
         .finally(signupFormReset);
