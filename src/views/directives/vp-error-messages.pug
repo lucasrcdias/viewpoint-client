@@ -5,4 +5,4 @@ strong.ztt-form-group__error(ng-messages="vm.errors" ng-show="vm.isDirty")
   span(ng-message="minlength") A senha está muito curta
   span(ng-message="maxlength") O conteúdo é maior do que o permitido
 
-strong.ztt-form-group__error(ng-if="vm.errors.model !== undefined") {{ vm.errors.model.toSentence() }}
+strong.ztt-form-group__error {{ vm.errors.model }}
