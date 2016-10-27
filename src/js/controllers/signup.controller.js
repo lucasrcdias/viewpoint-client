@@ -8,12 +8,7 @@
   function signupCtrl ($auth, errorsService) {
     var vm = this;
 
-    vm.user = {
-      errors: {
-        "email": "e-mail em uso",
-        "password": "senha curta"
-      }
-    };
+    vm.user = {};
 
     vm.fieldErrors      = fieldErrors;
     vm.signupFormSubmit = signupFormSubmit;
