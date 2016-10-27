@@ -3,11 +3,19 @@
     .module("viewpoint.controllers")
     .controller("signupCtrl", signupCtrl);
 
-  signupCtrl.$inject = ["$auth"];
+  signupCtrl.$inject = ["$auth", "errorsService"];
 
-  function signupCtrl ($auth) {
+  function signupCtrl ($auth, errorsService) {
     var vm = this;
 
+    vm.user = {
+      errors: {
+        "email": "e-mail em uso",
+        "password": "senha curta"
+      }
+    };
+
+    vm.fieldErrors      = fieldErrors;
     vm.signupFormSubmit = signupFormSubmit;
 
     function signupFormSubmit (user) {
@@ -30,6 +38,10 @@
       vm.user.passwordConfirmation = "";
 
       vm.signupForm.$setPristine();
+    }
+
+    function fieldErrors (field) {
+      return errorsService.normalize(vm.signupForm, vm.user, field);
     }
   }
 })();
