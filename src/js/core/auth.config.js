@@ -10,8 +10,6 @@
     var apiURL     = envService.read("apiURL");
 
     $authProvider.httpInterceptor = false;
-    $authProvider.tokenRoot   = "";
-    $authProvider.tokenName   = "key";
     $authProvider.tokenPrefix = "";
 
     $authProvider.loginUrl  = apiURL + '/sessions';
