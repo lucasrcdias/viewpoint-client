@@ -55,6 +55,12 @@
             return groupsService.getGroups();
           }
         }
+      })
+      .state("signout", {
+        url: "/sair",
+        controller: "signoutCtrl",
+        controllerAs: "vm",
+        bindToController: true
       });
   };
 })();
