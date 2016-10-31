@@ -14,11 +14,11 @@
 
         vars: {
           development: {
-            apiURL: '//localhost:8080/api',
+            apiURL: '//localhost:8080/viewpoint/api',
             baseURL: '//localhost:8080'
           },
           production: {
-            apiURL: '//viewpoint.com.br/api',
+            apiURL: '//viewpoint.com.br/viewpoint/api',
             baseURL: '//viewpoint.com.br'
           }
         }
