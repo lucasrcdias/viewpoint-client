@@ -5,7 +5,8 @@
 
   function errorsService () {
     var service = {
-      normalize: normalize
+      normalize: normalize,
+      parse: parse
     }
 
     return service;
@@ -28,6 +29,16 @@
       }
 
       return {};
+    }
+
+    function parse (errors) {
+      var parsed = {};
+
+      angular.forEach(errors, function (value, key) {
+        parsed[value.field] = value.message;
+      });
+
+      return parsed;
     }
   }
 })();
