@@ -3,9 +3,9 @@
     .module("viewpoint.controllers")
     .controller("signupCtrl", signupCtrl);
 
-  signupCtrl.$inject = ["$auth", "errorsService"];
+  signupCtrl.$inject = ["$auth", "$state", "errorsService"];
 
-  function signupCtrl ($auth, errorsService) {
+  function signupCtrl ($auth, $state, errorsService) {
     var vm = this;
 
     vm.user = {};
@@ -14,18 +14,19 @@
     vm.signupFormSubmit = signupFormSubmit;
 
     function signupFormSubmit (user) {
-      return $auth.signup(user)
+      return $auth.signup({ "user": user })
         .then(userCreated)
         .catch(userCreationFail)
         .finally(signupFormReset);
     }
 
     function userCreated (response) {
-      console.log(response);
+      $auth.setToken(response.data.token);
+      $state.go("dashboard");
     }
 
     function userCreationFail (error) {
-      console.log(error);
+      vm.user.errors = errorsService.parse(error.data);
     }
 
     function signupFormReset () {
