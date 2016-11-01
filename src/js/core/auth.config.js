@@ -12,7 +12,7 @@
     $authProvider.httpInterceptor = false;
     $authProvider.tokenPrefix = "";
 
-    $authProvider.loginUrl  = apiURL + '/sessions';
+    $authProvider.loginUrl  = apiURL + '/user/login';
     $authProvider.signupUrl = apiURL + '/user/create';
   }
 })();
