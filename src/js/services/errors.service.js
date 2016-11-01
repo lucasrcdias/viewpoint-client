@@ -35,7 +35,7 @@
       var parsed = {};
 
       angular.forEach(errors, function (value, key) {
-        parsed[value.field] = value.message;
+        parsed[value.field.toLowerCase()] = value.message;
       });
 
       return parsed;

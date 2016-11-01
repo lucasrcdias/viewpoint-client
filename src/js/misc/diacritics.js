@@ -90,6 +90,7 @@
 
   function removeDiacritics () {
     var str = this;
+
     for(var i=0; i < map.length; i++) {
       str = str.replace(map[i].letters, map[i].base);
     }
