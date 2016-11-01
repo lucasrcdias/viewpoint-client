@@ -1,0 +1,40 @@
+extends layouts/application.pug
+
+block description
+  | Utilize o espaço abaixo para atualizar seus dados
+
+block form
+  .page__form
+    form.ztt-card.ztt-card--no-title(name="vm.updateForm", ng-submit="vm.updateFormSubmit(vm.user)", ng-autodisable="")
+      .ztt-card__content
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="name") Digite seu nome
+            input.ztt-form-group__input#name(name="name", ng-model="vm.user.name", ng-required="true", ng-minlength="6", type="text", ztt-input="")
+          vp-error-messages(errors="vm.fieldErrors('name')", is-dirty="vm.updateForm.name.$dirty")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="email") Digite seu e-mail
+            input.ztt-form-group__input#email(name="email", ng-model="vm.user.email", ng-required="true", ng-minlength="6", type="email", ztt-input="")
+          vp-error-messages(errors="vm.fieldErrors('email')", is-dirty="vm.updateForm.email.$dirty")
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="password") Escolha uma nova senha
+            input.ztt-form-group__input#password(name="password", ng-model="vm.user.password", ng-required="true", ng-minlength="6", type="password", ztt-input="")
+          vp-error-messages(errors="vm.fieldErrors('password')", is-dirty="vm.updateForm.password.$dirty")
+
+
+        .ztt-form-group
+          .ztt-form-group__wrapper
+            label.ztt-form-group__label.ztt-form-group__label--floating(for="passwordConfirmation") Agora confirme sua nova senha
+            input.ztt-form-group__input#passwordConfirmation(name="passwordConfirmation", ng-model="vm.user.passwordConfirmation", ng-required="true", ng-minlength="6", type="password", ztt-input="", vp-password-match="vm.user.password")
+          vp-error-messages(errors="vm.updateForm.passwordConfirmation.$error", is-dirty="vm.updateForm.passwordConfirmation.$dirty")
+
+      .ztt-card__footer.ztt-card__footer--center
+        button.btn.btn--primary.btn--block(type="submit", ng-disabled="vm.updateForm.$invalid") Atualizar dados
+
+block links
+  .page__links
+    a.page__link(ui-sref="dashboard") Voltar para o dashboard

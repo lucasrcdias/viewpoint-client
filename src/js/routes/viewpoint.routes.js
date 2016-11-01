@@ -52,10 +52,10 @@
           }
         }
       })
-      .state("passwordUpdate", {
-        url: "/alterar-senha",
-        templateUrl: "/views/password-update.html",
-        controller: "passwordUpdateCtrl",
+      .state("userUpdate", {
+        url: "/atualizar-dados",
+        templateUrl: "/views/user-update.html",
+        controller: "userUpdateCtrl",
         controllerAs: "vm",
         bindToController: true,
         resolve: {

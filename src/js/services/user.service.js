@@ -13,7 +13,8 @@
       remove: remove,
       recoverPassword: recoverPassword,
       saveApiKey: saveApiKey,
-      getApiKey: getApiKey
+      getApiKey: getApiKey,
+      findByApiKey: findByApiKey
     };
 
     return service;
@@ -33,6 +34,12 @@
     function recoverPassword (user) {
       // TODO: Atualizar quando for implementada a API para recuperação de senha
       return $http.post(apiUrl + "/user/password-recovery")
+        .then(onSuccess)
+        .catch(onFailure);
+    }
+
+    function findByApiKey (key) {
+      return $http.get(apiUrl + "/user/findByKey?key=" + key)
         .then(onSuccess)
         .catch(onFailure);
     }
