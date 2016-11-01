@@ -64,6 +64,18 @@
           }
         }
       })
+      .state("passwordUpdate", {
+        url: "/atualizar-senha",
+        templateUrl: "/views/password-update.html",
+        controller: "passwordUpdateCtrl",
+        controllerAs: "vm",
+        bindToController: true,
+        resolve: {
+          authenticate: function (authenticationService) {
+            authenticationService.isAuthenticated();
+          }
+        }
+      })
       .state("dashboard", {
         url: "/dashboard",
         templateUrl: "/views/dashboard.html",

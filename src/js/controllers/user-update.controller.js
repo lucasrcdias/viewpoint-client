@@ -18,8 +18,7 @@
     function updateFormSubmit (user) {
       return userService.update(user)
         .then(onSuccess)
-        .catch(onFailure)
-        .finally(clearPassword);
+        .catch(onFailure);
     }
 
     function loadUser () {
@@ -39,13 +38,6 @@
 
     function onFailure (error) {
       vm.user.errors = errorsService.parse(error.data);
-    }
-
-    function clearPassword () {
-      vm.user.password = "";
-      vm.user.passwordConfirmation = "";
-
-      vm.updateForm.$setPristine();
     }
 
     function fieldErrors (field) {
