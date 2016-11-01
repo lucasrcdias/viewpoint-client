@@ -5,7 +5,7 @@
 
   vpNavbar.$inject = ["alertService"];
 
-  function vpNavbar(alertService) {
+  function vpNavbar (alertService) {
     var directive = {
       restrict: "A",
       link: linkFunction
@@ -44,7 +44,7 @@
         }
 
         submenu.classList.toggle(openedSubmenuClass);
-      };
+      }
 
       function windowResized (event) {
         if (window.innerWidth < 768) {
@@ -55,10 +55,10 @@
 
         container.appendChild(apiBox);
         menu.appendChild(submenu);
-      };
+      }
 
       windowResized();
-    };
+    }
 
     return directive;
   };

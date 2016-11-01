@@ -1,4 +1,4 @@
-(function() {
+(function () {
   angular.module("viewpoint.core", [
     'ngTouch',
     'ngSanitize',
@@ -8,6 +8,7 @@
     'environment',
     'ngLodash',
     'ngAutodisable',
+    'satellizer',
     'ui.router',
     'zttDesignLite'
   ]);

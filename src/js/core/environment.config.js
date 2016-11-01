@@ -1,11 +1,11 @@
-(function() {
+(function () {
   angular
     .module('viewpoint.core')
     .config(environmentProvider);
 
     environmentProvider.$inject = ['envServiceProvider'];
 
-    function environmentProvider(envServiceProvider) {
+    function environmentProvider (envServiceProvider) {
       envServiceProvider.config({
         domains: {
           development: ['localhost'],
@@ -14,11 +14,11 @@
 
         vars: {
           development: {
-            apiURL: '//localhost:3000/v1',
-            baseURL: '//localhost:3000'
+            apiURL: '//localhost:8080/viewpoint/api',
+            baseURL: '//localhost:8080'
           },
           production: {
-            apiURL: '//viewpoint.com.br/api/v1',
+            apiURL: '//viewpoint.com.br/viewpoint/api',
             baseURL: '//viewpoint.com.br'
           }
         }

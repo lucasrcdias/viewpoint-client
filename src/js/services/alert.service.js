@@ -5,7 +5,7 @@
 
   alertService.$inject = ["$rootScope"];
 
-  function alertService($rootScope) {
+  function alertService ($rootScope) {
     var service = {
       success: success,
       error: error,
@@ -14,25 +14,25 @@
 
     return service;
 
-    function success(message) {
+    function success (message) {
       displayAlert(message, "success");
-    };
+    }
 
-    function error(message) {
+    function error (message) {
       displayAlert(message, "error");
-    };
+    }
 
-    function warning(message) {
+    function warning (message) {
       displayAlert(message, "warning");
-    };
+    }
 
-    function displayAlert(message, type) {
+    function displayAlert (message, type) {
       var alert = {
         "message": message,
         "type": type
       };
 
       $rootScope.$emit("alert:display", alert);
-    };
-  };
+    }
+  }
 })();

@@ -10,7 +10,7 @@
 
     return service;
 
-    function getGroups() {
+    function getGroups () {
       return [
         {
           id: 1,

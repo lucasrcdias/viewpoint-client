@@ -1,9 +1,9 @@
-(function() {
+(function () {
   angular
     .module("viewpoint.controllers")
     .controller("homeCtrl", homeCtrl);
 
-  function homeCtrl() {
+  function homeCtrl () {
     var vm = this;
-  };
+  }
 })();

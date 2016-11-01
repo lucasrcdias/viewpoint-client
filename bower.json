@@ -16,7 +16,8 @@
     "normalize-css": "^5.0.0",
     "font-awesome": "^4.6.3",
     "clipboard": "^1.5.13",
-    "angucomplete-alt": "^2.5.0"
+    "angucomplete-alt": "^2.5.0",
+    "satellizer": "^0.15.5"
   },
   "resolutions": {
     "angular": "^1.5.8"

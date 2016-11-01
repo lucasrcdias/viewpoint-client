@@ -5,7 +5,7 @@
 
   passwordRecoveryCtrl.$inject = ["userService"];
 
-  function passwordRecoveryCtrl(userService) {
+  function passwordRecoveryCtrl (userService) {
     var vm = this;
   }
 })();

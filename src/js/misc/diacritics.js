@@ -1,4 +1,4 @@
-(function() {
+(function () {
   String.prototype.removeDiacritics = removeDiacritics;
 
   var map = [
@@ -95,5 +95,5 @@
     }
 
     return str;
-  };
+  }
 })();
