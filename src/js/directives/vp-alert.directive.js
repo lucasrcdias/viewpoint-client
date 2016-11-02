@@ -18,18 +18,24 @@
     return directive;
 
     function vpAlertCtrl ($rootScope, $timeout) {
-      var vm = this;
+      var vm    = this;
+      var timer = undefined;
 
       $rootScope.$on("alert:display", alertDisplayHandler);
 
       function alertDisplayHandler (event, alert) {
         if (alert) {
-          vm.message = alert.message;
-          vm.type    = "alert--" + alert.type;
-          vm.display = true;
+          $timeout(function () {
+            vm.message = alert.message;
+            vm.type    = "alert--" + alert.type;
+            vm.display = true;
 
-          $timeout(hideAlert, 5000);
-          $rootScope.$apply();
+            if (timer) {
+              $timeout.cancel(timer);
+            }
+
+            timer = $timeout(hideAlert, 5000);
+          }, 0);
         }
       }
 
