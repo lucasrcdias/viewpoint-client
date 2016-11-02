@@ -14,7 +14,8 @@
       recoverPassword: recoverPassword,
       saveApiKey: saveApiKey,
       getApiKey: getApiKey,
-      findByApiKey: findByApiKey
+      findByApiKey: findByApiKey,
+      removeApiKey: removeApiKey
     };
 
     return service;
@@ -58,6 +59,10 @@
 
     function getApiKey (key) {
       return localStorage["api_key"];
+    }
+
+    function removeApiKey () {
+      localStorage.removeItem("api_key");
     }
 
     function onSuccess (response) {
