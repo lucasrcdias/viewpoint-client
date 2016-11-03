@@ -3,11 +3,12 @@
     .module("viewpoint.controllers")
     .controller("dashboardCtrl", dashboardCtrl);
 
-  dashboardCtrl.$inject = ["groupsService", "groups"];
+  dashboardCtrl.$inject = ["groupsService", "groups", "alertService"];
 
-  function dashboardCtrl (groupsService, groups) {
+  function dashboardCtrl (groupsService, groups, alertService) {
     var vm = this;
 
+    vm.events = [];
     vm.groups = normalizeGroups(groups);
 
     vm.groupSearch  = groupSearch;
@@ -34,11 +35,11 @@
     }
 
     function onSuccess (response) {
-      console.log(response.data);
+      vm.events = response.data;
     }
 
     function onFailure (error) {
-      console.log(error);
+      alertService.error("Ocorreu um erro ao filtrar, tente novamente mais tarde...");
     }
 
     function normalizeGroups (groups) {

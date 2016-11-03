@@ -24,3 +24,6 @@ block content
         .ztt-card__header
           .ztt-card__header-content
             h3.ztt-card__title Relatório
+
+        .ztt-card__content
+          vp-report(data="vm.events", group="{{vm.group.originalObject.name}}")
