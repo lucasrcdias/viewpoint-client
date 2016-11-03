@@ -7,7 +7,7 @@ nav.nav(role="nav", vp-navbar="")
     .nav__api.js-api-wrapper
       strong.nav__api__label Chave da API
 
-      input.nav__api__input#api-key(type="text", readonly="true", value="ABCDEF123456")
+      input.nav__api__input#api-key(type="text", readonly="true", vp-api-key="")
       button.nav__api__btn.js-api-key-btn(type="button", data-clipboard-target="#api-key") Copiar
 
     .nav__menu.js-menu
@@ -15,7 +15,8 @@ nav.nav(role="nav", vp-navbar="")
         i.fa.fa-bars.nav__menu__icon.js-toggle-icon
 
       .nav__menu__submenu.js-submenu
-        a.nav__menu__submenu__item(ui-sref="passwordUpdate") Alterar senha
+        a.nav__menu__submenu__item(ui-sref="userUpdate") Atualizar dados
+        a.nav__menu__submenu__item(ui-sref="passwordUpdate") Atualizar senha
         a.nav__menu__submenu__item(ui-sref="signout") Sair
 
     .nav__mobile.js-mobile-menu

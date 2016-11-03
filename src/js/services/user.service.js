@@ -11,13 +11,17 @@
       get: get,
       update: update,
       remove: remove,
-      recoverPassword: recoverPassword
+      recoverPassword: recoverPassword,
+      saveApiKey: saveApiKey,
+      getApiKey: getApiKey,
+      findByApiKey: findByApiKey,
+      removeApiKey: removeApiKey
     };
 
     return service;
 
     function update (user) {
-      return $http.put(apiUrl + "/user/update", user)
+      return $http.put(apiUrl + "/user/update", { "user": user })
         .then(onSuccess)
         .catch(onFailure);
     }
@@ -35,10 +39,30 @@
         .catch(onFailure);
     }
 
+    function findByApiKey (key) {
+      return $http.get(apiUrl + "/user/findByKey?key=" + key)
+        .then(onSuccess)
+        .catch(onFailure);
+    }
+
     function get (id) {
       return $http.get(apiUrl + "/user/show")
         .then(onSuccess)
         .catch(onFailure);
+    }
+
+    function saveApiKey (key) {
+      localStorage["api_key"] = key;
+
+      return key;
+    }
+
+    function getApiKey (key) {
+      return localStorage["api_key"];
+    }
+
+    function removeApiKey () {
+      localStorage.removeItem("api_key");
     }
 
     function onSuccess (response) {

@@ -3,9 +3,9 @@
     .module("viewpoint.controllers")
     .controller("signinCtrl", signinCtrl);
 
-  signinCtrl.$inject = ["errorsService", "$auth", "$state"];
+  signinCtrl.$inject = ["userService", "errorsService", "$auth", "$state"];
 
-  function signinCtrl (errorsService, $auth, $state) {
+  function signinCtrl (userService, errorsService, $auth, $state) {
     var vm = this;
 
     vm.user = {};
@@ -21,6 +21,8 @@
     }
 
     function authCompleted (response) {
+      userService.saveApiKey(response.data.key);
+
       $state.go("dashboard");
     }
 
