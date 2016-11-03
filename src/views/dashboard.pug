@@ -31,5 +31,6 @@ block content
             li.events__item(ng-repeat="event in vm.events")
               .events__item__left-bar(ng-class="['events__item__left-bar--' + event.status]")
               .events__item__content(ng-class="['events__item__content--' + event.status]")
-                strong.events__item__content__percentage(ng-class="['events__item__content__percentage--' + event.status]") {{ event.percentage + "%" }}
-                strong.events__item__content__name {{ event.name }}
+                strong.events__item__content__percentage {{ event.percentage + "%" }}
+                strong.events__item__content__name Evento: {{ event.name }}
+                strong.events__item__content__total Número de ocorrências: ({{ event.total }})
