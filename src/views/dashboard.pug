@@ -17,13 +17,19 @@ block content
               angucomplete-alt(id="group", input-class="ztt-form-group__input", template-url="/views/directives/angucomplete.html", text-searching="Procurando...", text-no-results="Nenhum resultado encontrado", match-class="highlight", title-field="name", search-fields="name", local-data="vm.groups", local-search="vm.groupSearch", selected-object="vm.group", auto-match="true", minlength="0")
 
         .ztt-card__footer
-          button.btn.btn--primary.btn--block(type="button", ng-disabled="!vm.group", ng-click="vm.filterEvents(vm.group)", ng-autodisable="") Filtrar
+          button.btn.btn--primary.btn--block(type="button", ng-disabled="!vm.group", ng-click="vm.filterEvents(vm.group)", ng-autodisable="") Gerar relatório
 
-    main.dashboard__main(role="main-content")
+    main.dashboard__main(role="main-content", ng-show="vm.displayReport")
       .ztt-card.dashboard__card
         .ztt-card__header
           .ztt-card__header-content
-            h3.ztt-card__title Relatório
+            h3.ztt-card__title
+              | {{ "Relatório #" + vm.groupName }}
 
         .ztt-card__content
-          vp-report(data="vm.events", group="{{vm.group.originalObject.name}}")
+          ol.events
+            li.events__item(ng-repeat="event in vm.events")
+              .events__item__left-bar(ng-class="['events__item__left-bar--' + event.status]")
+              .events__item__content(ng-class="['events__item__content--' + event.status]")
+                strong.events__item__content__percentage(ng-class="['events__item__content__percentage--' + event.status]") {{ event.percentage + "%" }}
+                strong.events__item__content__name {{ event.name }}
