@@ -28,7 +28,6 @@
       function drawChart () {
         if (!scope.data || !scope.data.length) { return; }
 
-        debugger;
         var events  = parsedEvents(scope.data);
         var data    = google.visualization.arrayToDataTable(events);
         var options = {
@@ -46,7 +45,6 @@
         parsed.push(["Eventos", "Número de ocorrências"]);
 
         angular.forEach(events, function (e) {
-          debugger;
           parsed.push([e.name, e.total]);
         })
 
