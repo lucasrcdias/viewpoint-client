@@ -20,8 +20,8 @@
         .catch(onFailure);
     }
 
-    function getEvents (group) {
-      return $http.get(apiURL + "/action/findActionsByGroup?group=" + group.name)
+    function getEvents (name) {
+      return $http.get(apiURL + "/action/findActionsByGroup?group=" + name)
         .then(onSuccess)
         .catch(onFailure);
     }

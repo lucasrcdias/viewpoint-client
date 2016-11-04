@@ -14,7 +14,7 @@ block content
           .ztt-form-group
             .ztt-form-group__wrapper
               label.ztt-form-group__label.ztt-form-group__label--floating(for="group_value") Selecione um grupo
-              angucomplete-alt(id="group", input-class="ztt-form-group__input", template-url="/views/directives/angucomplete.html", text-searching="Procurando...", text-no-results="Nenhum resultado encontrado", match-class="highlight", title-field="name", search-fields="name", local-data="vm.groups", local-search="vm.groupSearch", selected-object="vm.group", auto-match="true", minlength="0")
+              angucomplete-alt(id="group", input-class="ztt-form-group__input", template-url="/views/directives/angucomplete.html", text-searching="Procurando...", text-no-results="Nenhum resultado encontrado", match-class="highlight", title-field="name", search-fields="name", local-data="vm.groups", local-search="vm.groupSearch", selected-object="vm.group", auto-match="true", minlength="0", initial-value="vm.group")
 
         .ztt-card__footer
           button.btn.btn--primary.btn--block(type="button", ng-disabled="!vm.group", ng-click="vm.filterEvents(vm.group)", ng-autodisable="") Gerar relatório
@@ -23,8 +23,7 @@ block content
       .ztt-card.dashboard__card
         .ztt-card__header
           .ztt-card__header-content
-            h3.ztt-card__title
-              | {{ "Relatório #" + vm.groupName }}
+            h3.ztt-card__title Relatório do grupo {{ vm.groupName }}
 
         .ztt-card__content
           ol.events
@@ -33,4 +32,4 @@ block content
               .events__item__content(ng-class="['events__item__content--' + event.status]")
                 strong.events__item__content__percentage {{ event.percentage + "%" }}
                 strong.events__item__content__name Evento: {{ event.name }}
-                strong.events__item__content__total Número de ocorrências: ({{ event.total }})
+                strong.events__item__content__total Número de ocorrências: {{ event.total }}

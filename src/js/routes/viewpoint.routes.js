@@ -77,17 +77,21 @@
         }
       })
       .state("dashboard", {
-        url: "/dashboard",
+        url: "/dashboard?group",
         templateUrl: "/views/dashboard.html",
         controller: "dashboardCtrl",
         controllerAs: "vm",
         bindToController: true,
+        reloadOnSearch: false,
         resolve: {
           groups: function (groupsService) {
             return groupsService.getGroups();
           },
           authenticate: function (authenticationService) {
             authenticationService.isAuthenticated();
+          },
+          group: function ($stateParams) {
+            return $stateParams.group;
           }
         }
       })
