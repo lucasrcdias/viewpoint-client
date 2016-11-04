@@ -109,7 +109,7 @@
 
       searchEvents(group);
 
-      vm.group = { "name": group };
+      vm.initialGroup = { "name": group };
     }
   }
 })();
