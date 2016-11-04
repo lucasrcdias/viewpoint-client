@@ -33,7 +33,7 @@
     }
 
     function recoverPassword (user) {
-      return $http.post(apiUrl + "/user/passwordRecover?email=" + user.email)
+      return $http.post(apiUrl + "/user/passwordRecovery?email=" + user.email)
         .then(onSuccess)
         .catch(onFailure);
     }
