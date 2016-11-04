@@ -18,7 +18,7 @@
             baseURL: '//localhost:8080'
           },
           production: {
-            apiURL: '//viewpoint.com.br/viewpoint/api',
+            apiURL: '//viewpoint.com.br/api',
             baseURL: '//viewpoint.com.br'
           }
         }
