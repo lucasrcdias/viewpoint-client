@@ -33,8 +33,7 @@
     }
 
     function recoverPassword (user) {
-      // TODO: Atualizar quando for implementada a API para recuperação de senha
-      return $http.post(apiUrl + "/user/password-recovery")
+      return $http.post(apiUrl + "/user/passwordRecovery?email=" + user.email)
         .then(onSuccess)
         .catch(onFailure);
     }

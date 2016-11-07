@@ -35,7 +35,9 @@
     }
 
     function onSuccess (response) {
-      vm.events = response.data;
+      vm.events        = setEvents(response.data, getMaxOcurrences(response.data));
+      vm.groupName     = response.data[0].group;
+      vm.displayReport = true;
     }
 
     function onFailure (error) {
@@ -51,6 +53,43 @@
       });
 
       return normalizedGroups;
+    }
+
+    function getMaxOcurrences (events) {
+      var max = 0;
+
+      angular.forEach(events, function (event) {
+        if (event.total > max) {
+          max = event.total;
+        }
+      });
+
+      return max;
+    }
+
+    function setEvents (events, max) {
+      angular.forEach(events, function (event) {
+        event.percentage = calculatePercentage(event, max);
+        event.status     = setEventStatus(event);
+      });
+
+      return events;
+    }
+
+    function calculatePercentage (event, max) {
+      return Math.floor((event.total * 100) / max);
+    }
+
+    function setEventStatus (event) {
+      if (event.percentage >= 60) {
+        return "good";
+      }
+
+      if (event.percentage < 60 && event.percentage >= 30) {
+        return "average";
+      }
+
+      return "bad";
     }
   }
 })();
