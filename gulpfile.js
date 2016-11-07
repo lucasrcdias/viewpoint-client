@@ -17,7 +17,8 @@ var srcPaths = {
   'pug':      'src/views/**/*.pug',
   'pugIndex': 'src/index.pug',
   'css':      'src/style/**/*.sass',
-  'mainSass': 'src/style/viewpoint.sass'
+  'mainSass': 'src/style/viewpoint.sass',
+  'images':   'src/images/**/*'
 };
 
 var vendorPaths = {
@@ -26,9 +27,10 @@ var vendorPaths = {
 }
 
 var buildPaths = {
-  'build': 'dist/',
-  'pug':   'dist/views/',
-  'fonts': 'dist/fonts/'
+  'build':  'dist/',
+  'pug':    'dist/views/',
+  'fonts':  'dist/fonts/',
+  'images': 'dist/images/'
 };
 
 var autoprefixerOptions = {
@@ -125,6 +127,12 @@ gulp.task('pugIndex', function() {
     .pipe(gulp.dest(buildPaths.build));
 });
 
+gulp.task('images', function () {
+  gulp.src(srcPaths.images)
+    .pipe(plumber())
+    .pipe(gulp.dest(buildPaths.images))
+});
+
 gulp.task('watch', function() {
   watch(srcPaths.js, function () {
     gulp.start("js");
@@ -140,6 +148,10 @@ gulp.task('watch', function() {
 
   watch(srcPaths.pugIndex, function () {
     gulp.start("pugIndex");
+  });
+
+  watch(srcPaths.images, function () {
+    gulp.start("images");
   });
 
   watch(vendorPaths.css, function () {
@@ -167,4 +179,4 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'vendorCss', 'vendorJs', 'vendorFonts', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'js', 'pug', 'pugIndex', 'vendorCss', 'vendorJs', 'vendorFonts', 'images', 'watch', 'browser-sync']);

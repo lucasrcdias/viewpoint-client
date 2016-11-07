@@ -14,7 +14,12 @@
         templateUrl: "/views/home.html",
         controller: "homeCtrl",
         controllerAs: "vm",
-        bindToController: true
+        bindToController: true,
+        resolve: {
+          authenticate: function (authenticationService) {
+            authenticationService.notAuthenticated(false);
+          }
+        }
       })
       .state("signup", {
         url: "/cadastre-se",

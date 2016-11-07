@@ -1,9 +1,20 @@
-h1 Home
+header.home__header(role="header")
+  nav.home__nav(role="nav")
+    .container.home__container
+      .home__logo
+        h1.home__logo-text Viewpoint
 
-a(ui-sref="signup") cadastre-se
-br
-a(ui-sref="signin") login
-br
-a(ui-sref="passwordRecovery") recuperar senha
-br
-a(ui-sref="dashboard") dashboard
+      a.home__link(ui-sref="signin") Acesse sua conta
+
+  .home__banner-wrapper
+    img.home__banner-img(src="images/viewpoint_home_banner.jpg", alt="Viewpoint")
+
+  .home__banner-text
+    h1.home__banner-title Encontre o gargalo do seu site
+
+    p.home__banner-subtitle
+      | Uma plataforma que te ajuda aumentar a conversão e melhorar a experiência do usuário.
+
+  .home__footer
+    a.home__link.home__link--large.home__call-to-action(ui-sref="signup") Criar conta
+    a.home__download(href="https://github.com/lucasrcdias/viewpoint-integration/blob/master/dist/viewpoint.js", target="_blank") Veja a documentação

@@ -35,5 +35,4 @@ block content
                   strong.events__item__content__name Evento: {{ event.name }}
                   strong.events__item__content__total Número de ocorrências: {{ event.total }}
 
-            .events__report
-              vp-report(data="vm.events", group="{{vm.group.originalObject.name}}")
+            .events__report(vp-report="", data="vm.events", group="{{vm.group.originalObject.name}}")
