@@ -27,12 +27,12 @@
       return $q.reject();
     }
 
-    function notAuthenticated () {
+    function notAuthenticated (displayAlert) {
       if ($auth.isAuthenticated()) {
         $timeout(function () {
           $state.go("dashboard");
 
-          alertService.success("Você já está logado!");
+          if (displayAlert) { alertService.success("Você já está logado!"); }
         })
 
         return $q.reject();
