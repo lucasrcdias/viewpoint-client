@@ -3,9 +3,9 @@
     .module("viewpoint.controllers")
     .controller("dashboardCtrl", dashboardCtrl);
 
-  dashboardCtrl.$inject = ["groupsService", "groups", "alertService"];
+  dashboardCtrl.$inject = ["groupsService", "groups", "group", "alertService", "$location"];
 
-  function dashboardCtrl (groupsService, groups, alertService) {
+  function dashboardCtrl (groupsService, groups, group, alertService, $location) {
     var vm = this;
 
     vm.events = [];
@@ -14,8 +14,20 @@
     vm.groupSearch  = groupSearch;
     vm.filterEvents = filterEvents;
 
+    initializeDashboard();
+
     function filterEvents (group) {
-      return groupsService.getEvents(group.originalObject)
+      group = group.originalObject;
+
+      $location.search("group", group.name);
+
+      return searchEvents(group.name);
+    }
+
+    function searchEvents (name) {
+      if (!name) { return; }
+
+      return groupsService.getEvents(name)
         .then(onSuccess)
         .catch(onFailure);
     }
@@ -90,6 +102,14 @@
       }
 
       return "bad";
+    }
+
+    function initializeDashboard () {
+      if (!group) { return; }
+
+      searchEvents(group);
+
+      vm.initialGroup = { "name": group };
     }
   }
 })();

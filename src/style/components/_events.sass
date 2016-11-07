@@ -1,6 +1,21 @@
-.events
+.events__wrapper
+  display: flex
+  flex-wrap: wrap
+
+.events__list,
+.events__report
+  flex-grow: 0
+  flex-shrink: 0
+
+  @media screen and (max-width: $mobile-max)
+    flex-basis: 100%
+
+  @media screen and (min-width: $tablet-min)
+    flex-basis: 50%
+
+.events__list
+  margin: 30px 0
   list-style: none
-  margin: 30px auto
   -webkit-padding-start: 0
 
 .events__item
@@ -40,16 +55,10 @@
 .events__item__content__percentage
   display: block
   font-weight: 700
-
-.events__item__content__percentage--good
   font-size: 2.5rem
 
-.events__item__content__percentage--average
-  font-size: 2rem
-
-.events__item__content__percentage--bad
-  font-size: 1.5rem
-
-.events__item__content__name
+.events__item__content__name,
+.events__item__content__total
   font-size: 1rem
   font-weight: 500
+  display: block
