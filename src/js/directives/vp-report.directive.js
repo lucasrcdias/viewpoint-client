@@ -5,7 +5,7 @@
 
   function vpReport () {
     var directive = {
-      "restrict": "E",
+      "restrict": "EA",
       "scope": {
         "data": "=",
         "group": "@"
@@ -20,6 +20,8 @@
 
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(drawChart);
+
+      window.addEventListener("resize", drawChart);
 
       scope.$watch("data", function () {
         drawChart();
